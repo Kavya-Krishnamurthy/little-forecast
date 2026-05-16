@@ -1,161 +1,129 @@
-const searchBtn = document.getElementById("searchBtn");
+const weatherCodes = {
+    0: "Clear sky",
+    1: "Mainly clear",
+    2: "Partly cloudy",
+    3: "Overcast",
+    45: "Fog",
+    48: "Depositing rime fog",
+    51: "Light drizzle",
+    61: "Rain",
+    71: "Snow fall",
+    95: "Thunderstorm"
+};
 
-searchBtn.addEventListener("click", searchWeather);
-
-async function searchWeather() {
-
-  const city = document.getElementById("cityInput").value;
-
-  // Prevent empty input
-  if (city === "") {
-    alert("Please enter a city name!");
-    return;
-  }
-
-  try {
-
-    // STEP 1: Get coordinates from city name
-    const location = await getCoordinates(city);
-
-    // STEP 2: Get weather data using coordinates
-    const weather = await getWeather(
-      location.latitude,
-      location.longitude
-    );
-
-    // STEP 3: Display data
-    document.getElementById("cityName").innerText =
-      location.name;
-
-    document.getElementById("temperature").innerText =
-      `${Math.round(weather.temperature_2m)}°C`;
-
-    document.getElementById("condition").innerText =
-      getWeatherCondition(weather.weather_code);
-
-    // STEP 4: Show doodle
-    showDoodle(weather.weather_code);
-
-  }
-
-  catch (error) {
-
-    console.log(error);
-
-    alert("City not found!");
-
-  }
-}
-
-
-// FUNCTION: Get city coordinates
+// Convert city name to coordinates
 async function getCoordinates(city) {
 
-  const response = await fetch(
-    `https://geocoding-api.open-meteo.com/v1/search?name=${city}`
-  );
+    const errorMessage = document.getElementById("errorMessage");
+    errorMessage.textContent = "";
 
-  const data = await response.json();
+    try {
 
-  // Check if city exists
-  if (!data.results || data.results.length === 0) {
-    throw new Error("City not found");
-  }
+        const geoUrl =
+            `https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=1`;
 
-  return data.results[0];
+        const response = await fetch(geoUrl);
+
+        if (!response.ok) {
+            throw new Error("Failed to fetch location data.");
+        }
+
+        const data = await response.json();
+
+        if (!data.results || data.results.length === 0) {
+            throw new Error("City not found.");
+        }
+
+        return {
+            latitude: data.results[0].latitude,
+            longitude: data.results[0].longitude,
+            name: data.results[0].name,
+            country: data.results[0].country
+        };
+
+    } catch (error) {
+        errorMessage.textContent = error.message;
+    }
 }
 
+// Temperature endpoint
+async function getTemperature() {
 
-// FUNCTION: Get weather data
-async function getWeather(lat, lon) {
+    const city = document.getElementById("cityInput").value;
 
-  const response = await fetch(
-    `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weather_code`
-  );
+    if (!city) {
+        document.getElementById("errorMessage").textContent =
+            "Please enter a city name.";
+        return;
+    }
 
-  const data = await response.json();
+    const location = await getCoordinates(city);
 
-  return data.current;
+    if (!location) return;
+
+    const url =
+        `https://api.open-meteo.com/v1/forecast?latitude=${location.latitude}&longitude=${location.longitude}&current=temperature_2m`;
+
+    try {
+
+        const response = await fetch(url);
+
+        if (!response.ok) {
+            throw new Error("Unable to fetch weather data.");
+        }
+
+        const data = await response.json();
+
+        document.getElementById("weatherData").innerHTML = `
+            <h2>${location.name}, ${location.country}</h2>
+            <p><strong>Temperature:</strong> 
+            ${data.current.temperature_2m}°C</p>
+        `;
+
+    } catch (error) {
+        document.getElementById("errorMessage").textContent =
+            error.message;
+    }
 }
 
+// Conditions endpoint
+async function getConditions() {
 
-// FUNCTION: Convert weather code to condition
-function getWeatherCondition(code) {
+    const city = document.getElementById("cityInput").value;
 
-  if (code === 0) {
-    return "Sunny";
-  }
+    if (!city) {
+        document.getElementById("errorMessage").textContent =
+            "Please enter a city name.";
+        return;
+    }
 
-  else if (code >= 1 && code <= 3) {
-    return "Cloudy";
-  }
+    const location = await getCoordinates(city);
 
-  else if (code >= 45 && code <= 48) {
-    return "Foggy";
-  }
+    if (!location) return;
 
-  else if (code >= 51 && code <= 67) {
-    return "Rainy";
-  }
+    const url =
+        `https://api.open-meteo.com/v1/forecast?latitude=${location.latitude}&longitude=${location.longitude}&current=weather_code`;
 
-  else if (code >= 71 && code <= 77) {
-    return "Snowy";
-  }
+    try {
 
-  else if (code >= 80 && code <= 99) {
-    return "Stormy";
-  }
+        const response = await fetch(url);
 
-  else {
-    return "Unknown";
-  }
-}
+        if (!response.ok) {
+            throw new Error("Unable to fetch weather data.");
+        }
 
+        const data = await response.json();
 
-// FUNCTION: Show doodles
-function showDoodle(code) {
+        const condition =
+            weatherCodes[data.current.weather_code] || "Unknown";
 
-  const doodle = document.getElementById("doodle");
+        document.getElementById("weatherData").innerHTML = `
+            <h2>${location.name}, ${location.country}</h2>
+            <p><strong>Condition:</strong> ${condition}</p>
+        `;
 
-  if (code === 0) {
-
-    doodle.innerHTML = "☀️✨";
-
-  }
-
-  else if (code >= 1 && code <= 3) {
-
-    doodle.innerHTML = "☁️☁️";
-
-  }
-
-  else if (code >= 45 && code <= 48) {
-
-    doodle.innerHTML = "🌫️";
-
-  }
-
-  else if (code >= 51 && code <= 67) {
-
-    doodle.innerHTML = "🌧️☔";
-
-  }
-
-  else if (code >= 71 && code <= 77) {
-
-    doodle.innerHTML = "❄️☃️";
-
-  }
-
-  else if (code >= 80 && code <= 99) {
-
-    doodle.innerHTML = "⛈️⚡";
-
-  }
-
-  else {
-
-    doodle.innerHTML = "🌈";
-
-  }
+    } catch (error) {
+        document.getElementById("errorMessage").textContent =
+            error.message;
+    }
 }
