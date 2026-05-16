@@ -26,7 +26,7 @@ The goal was to create a weather forecast experience that feels:
 
 ---
 
-#Features
+# Features
 
 - Weather Search :
   Users can search any city using the Open-Meteo Geocoding API.
