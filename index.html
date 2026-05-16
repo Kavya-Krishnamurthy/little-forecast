@@ -3,27 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Forecast App</title>
+    <title>Doodle Weather Widget</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <h1>Weather Forecast Dashboard</h1>
-        <nav>
-            <a href="temperature.html">Temperature Forecast</a>
-            <a href="conditions.html">Weather Conditions</a>
-        </nav>
-    </header>
+<div class="background-blobs"></div>
 
-    <main>
-        <section class="welcome-card">
-            <h2>Welcome!</h2>
-            <p>
-                View weather forecasts using Open-Meteo API.
-            </p>
-        </section>
-    </main>
+<header>
+    <h1 class="logo">☁️ Doodle Weather</h1>
+
+    <nav>
+        <a href="temperature.html">Temperature</a>
+        <a href="conditions.html">Conditions</a>
+    </nav>
+</header>
+
+<main>
+
+    <section class="widget-card hero-card">
+        <div class="weather-emoji">🌤️</div>
+
+        <h2>Smart Weather Widget</h2>
+
+        <p>
+            View live forecasts in a cute doodle-style weather dashboard.
+        </p>
+
+        <div class="button-group">
+            <a href="temperature.html" class="widget-btn">View Temperature</a>
+            <a href="conditions.html" class="widget-btn secondary">View Conditions</a>
+        </div>
+    </section>
+
+</main>
 
 </body>
 </html>
