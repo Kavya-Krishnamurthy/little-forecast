@@ -33,62 +33,37 @@ Users can search any city using the Open-Meteo Geocoding API.
 
 - Temperature Forecast Endpoint
 Displays:
-  > Current temperature
-  > City name
-  > Country
+  - Current temperature
+  - City name
+  - Country
 
 - Weather Conditions Endpoint
 Displays:
-  > Current weather condition
-  > Readable weather descriptions
-  (Sunny, Cloudy, Rainy, etc.)
+  - Current weather condition
+  - Readable weather descriptions
+  (Eg: Sunny, Cloudy, Rainy, etc.)
 
-### ✅ Dynamic API Requests
+#API Requests
 Each page makes independent GET requests only for the data required for that specific endpoint.
 
-### ✅ Navigation Between Endpoints
-Users can switch between:
-- Temperature Page
+#Navigation Between Endpoints
+Users can switch between the two pages without unnecessary API requests.
+i.e. 
+- Temperature Page and
 - Conditions Page
 
-without unnecessary API requests.
-
-### ✅ Error Handling
-The application handles:
+#Error Handling
+This webpage application handles user-friendly error messages.
 - Invalid city names
 - Empty search inputs
 - API/network failures
+ 
+# APIs Used
 
-with user-friendly error messages.
-
-### ✅ Responsive Design
-The UI works across:
-- Desktop
-- Tablet
-- Mobile devices
-
----
-
-# 🛠️ Technologies Used
-
-| Technology | Purpose |
-|---|---|
-| HTML5 | Structure |
-| CSS3 | Styling & animations |
-| JavaScript (ES6) | API requests & interactivity |
-| Open-Meteo API | Weather data |
-| Open-Meteo Geocoding API | City-to-coordinate conversion |
-
----
-
-# 🌐 APIs Used
-
-## 1. Open-Meteo Forecast API
-
+1. Open-Meteo Forecast API: 
 Official Documentation:  
 https://open-meteo.com/
 
 ### Temperature Endpoint
-
 ```bash
 https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}&current=temperature_2m
