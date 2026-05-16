@@ -5,7 +5,7 @@ This project is a simple lightweight weather forecast webpage application using 
 - https://kavya-krishnamurthy.github.io/little-forecast/index.html
 
 
-This simple application allows users to:
+This simple webpage application allows users to:
 - Search weather information by city 
 - View current temperature forecasts
 - View current weather conditions
