@@ -43,8 +43,8 @@ Displays:
   - Readable weather descriptions
   (Eg: Sunny, Cloudy, Rainy, etc.)
 
-#API Requests
-Each page makes independent GET requests only for the data required for that specific endpoint.
+# API Requests
+- Each page makes independent GET requests only for the data required for that specific endpoint.
 
 #Navigation Between Endpoints
 Users can switch between the two pages without unnecessary API requests.
