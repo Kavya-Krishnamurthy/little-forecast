@@ -53,7 +53,7 @@ i.e.
 - Conditions Page
 
 # Error Handling
-This webpage application handles user-friendly error messages.
+This webpage application handles user-friendly error messages for : 
 - Invalid city names
 - Empty search inputs
 - API/network failures
