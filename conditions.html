@@ -3,30 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather Conditions</title>
+    <title>Weather Conditions Widget</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
-    <h1>Weather Conditions</h1>
+    <h1 class="logo">⛅ Weather Conditions</h1>
 
     <nav>
         <a href="index.html">Home</a>
-        <a href="temperature.html">Temperature Forecast</a>
+        <a href="temperature.html">Temperature</a>
     </nav>
 </header>
 
 <main>
 
-    <div class="search-box">
-        <input type="text" id="cityInput" placeholder="Enter city name">
-        <button onclick="getConditions()">Search</button>
-    </div>
+    <section class="widget-card">
 
-    <section id="weatherData" class="card"></section>
+        <div class="search-box">
+            <input type="text" id="cityInput" placeholder="Search city...">
+            <button onclick="getConditions()">Search</button>
+        </div>
 
-    <p id="errorMessage"></p>
+        <div class="weather-emoji large">☁️</div>
+
+        <section id="weatherData"></section>
+
+        <p id="errorMessage"></p>
+
+    </section>
 
 </main>
 
