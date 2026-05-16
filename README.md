@@ -12,11 +12,13 @@ This simple webpage application allows users to:
 - Navigate seamlessly between the two weather  endpoints
 - Experience a responsive, light animated UI
 
+
 This project was built using:
 - HTML
 - CSS
 - Vanilla JavaScript
 - Open-Meteo Weather API
+
 
 The goal was to create a weather forecast experience that feels:
 - Friendly
@@ -24,7 +26,8 @@ The goal was to create a weather forecast experience that feels:
 - Modern
 - Lightweight
 
-Requirements
+
+Requirements: 
 - Modern web browser
 - Stable Internet connection (for Open-Meteo API requests)
 
