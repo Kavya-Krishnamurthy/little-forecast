@@ -24,6 +24,10 @@ The goal was to create a weather forecast experience that feels:
 - Modern
 - Lightweight
 
+Requirements
+- Modern web browser
+- Stable Internet connection (for Open-Meteo API requests)
+
 ---
 
 # Features
