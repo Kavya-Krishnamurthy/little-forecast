@@ -1,5 +1,5 @@
 # little-forecast
-This project is a simple lightweight weather forecast webpage using the Open-Meteo API.(pre-work assignment for CTD) 
+This project is a simple lightweight weather forecast webpage application using the Open-Meteo API.(pre-work assignment for CTD) 
 
 # live demo 
 - https://kavya-krishnamurthy.github.io/little-forecast/index.html
