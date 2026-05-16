@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="style.css">
-     <title>Little Forecast</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast App</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-     <div class="container">
-          <<h1>Little Forecast ☁️</h1>
 
-<input type="text" id="cityInput">
+    <header>
+        <h1>Weather Forecast Dashboard</h1>
+        <nav>
+            <a href="temperature.html">Temperature Forecast</a>
+            <a href="conditions.html">Weather Conditions</a>
+        </nav>
+    </header>
 
-<button id="searchBtn">
-  Search
-</button>
+    <main>
+        <section class="welcome-card">
+            <h2>Welcome!</h2>
+            <p>
+                View weather forecasts using Open-Meteo API.
+            </p>
+        </section>
+    </main>
 
-<div id="weatherCard">
-
-  <h2 id="cityName"></h2>
-
-  <p id="temperature"></p>
-
-  <p id="condition"></p>
-
-  <div id="doodle"></div>
-
-</div>
+</body>
+</html>
