@@ -1,18 +1,16 @@
 # little-forecast
-This project is a simple weather forecast webpage using the Open-Meteo API.
+This project is a simple lightweight weather forecast webpage using the Open-Meteo API.(pre-work assignment for CTD) 
 
 # live demo 
 - https://kavya-krishnamurthy.github.io/little-forecast/index.html
 
 
-Little Forecast is a lightweight weather dashboard designed with a fun doodle aesthetic while maintaining the clean usability of modern weather widgets found on phones and smartwatches.
-
-The application allows users to:
-- Search weather information by city
+This simple application allows users to:
+- Search weather information by city 
 - View current temperature forecasts
 - View current weather conditions
-- Navigate seamlessly between weather endpoints
-- Experience a responsive, animated UI
+- Navigate seamlessly between the two weather  endpoints
+- Experience a responsive, light animated UI
 
 This project was built using:
 - HTML
@@ -20,18 +18,7 @@ This project was built using:
 - Vanilla JavaScript
 - Open-Meteo Weather API
 
----
-
-## 🎨 Design Inspiration
-
-The UI combines:
-- Google Doodle-style playful visuals
-- Apple Weather widget-inspired glassmorphism
-- Soft pastel gradients
-- Rounded iWatch-style weather cards
-- Floating animations and clean responsive layouts
-
-The goal was to create a weather experience that feels:
+The goal was to create a weather forecast experience that feels:
 - Friendly
 - Interactive
 - Modern
@@ -41,19 +28,19 @@ The goal was to create a weather experience that feels:
 
 ## 🚀 Features
 
-### ✅ Weather Search
+- Weather Search
 Users can search any city using the Open-Meteo Geocoding API.
 
-### ✅ Temperature Forecast Endpoint
+- Temperature Forecast Endpoint
 Displays:
-- Current temperature
-- City name
-- Country
+  > Current temperature
+  > City name
+  > Country
 
-### ✅ Weather Conditions Endpoint
+- Weather Conditions Endpoint
 Displays:
-- Current weather condition
-- Human-readable weather descriptions
+  > Current weather condition
+  > Readable weather descriptions
   (Sunny, Cloudy, Rainy, etc.)
 
 ### ✅ Dynamic API Requests
