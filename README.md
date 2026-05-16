@@ -46,24 +46,22 @@ Displays:
 # API Requests
 - Each page makes independent GET requests only for the data required for that specific endpoint.
 
-#Navigation Between Endpoints
+# Navigation Between Endpoints
 Users can switch between the two pages without unnecessary API requests.
 i.e. 
 - Temperature Page and
 - Conditions Page
 
-#Error Handling
+# Error Handling
 This webpage application handles user-friendly error messages.
 - Invalid city names
 - Empty search inputs
 - API/network failures
  
 # APIs Used
-
-1. Open-Meteo Forecast API: 
-Official Documentation:  
+Open-Meteo Forecast API official documentation:  
 https://open-meteo.com/
 
-### Temperature Endpoint
+# Temperature Endpoint
 ```bash
 https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}&current=temperature_2m
